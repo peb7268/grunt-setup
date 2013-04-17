@@ -2,6 +2,16 @@
 module.exports = function(grunt) {
   // Project configuration.
   grunt.initConfig({
+    watch: {
+      scripts: {
+        files: '**/*/*.coffee',
+        tasks: ['default'],
+        options: {
+          interrupt: false,
+          nospawn: true
+        }
+      }
+    },
     //Syntax checking
     jshint: {
       all: ['Gruntfile.js', 'js/**/*/*.js'],
@@ -30,6 +40,7 @@ module.exports = function(grunt) {
   });
 
   // These plugins provide necessary tasks.
+  grunt.loadNpmTasks('grunt-contrib-watch');
   grunt.loadNpmTasks('grunt-contrib-coffee');
   grunt.loadNpmTasks('grunt-contrib-sass');
   grunt.loadNpmTasks('grunt-contrib-jshint');
@@ -46,5 +57,5 @@ module.exports = function(grunt) {
 
   // By default, lint and run all tests.
   // grunt.registerTask('default', ['jshint', 'test', 'build-contrib']);
-  grunt.registerTask('default', ['sass', 'coffee', 'jshint']);
+  grunt.registerTask('default', ['sass', 'coffee', 'jshint', 'watch']);
 };
