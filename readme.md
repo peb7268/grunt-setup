@@ -2,7 +2,10 @@
 A grunt project must have 2 things: a Gruntfile.js file and a package.json file.
 package.json tracks the dependencies via NPM. 
 
-####Installing packages
+####Installing Plugins
+Plugins cant be found by going to gruntjs.com/plugins. 
+The officially maintained plugins are prefixed with *contrib*. 
+
 To add dependencies to a project the easiest way is to use the npm install <module> command followed by the --save-dev flag. 
 
 ```markdown 

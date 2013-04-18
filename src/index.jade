@@ -1,0 +1,28 @@
+!!!5
+
+//if ! IE 
+	html
+//if IE 6
+	html.ie6
+//if IE 7
+	html.ie7
+//if IE 8
+	html.ie8
+//if IE 9
+	html.ie9
+//if ! IE
+html
+	head
+		title= "Grunt BoilerPlate"
+		meta(http-equiv="Content-type", content="text/html;, charset=utf-8")
+		link(rel="stylesheet", href="styles.css", type="text/css", media="screen", title="no title", charset="utf-8")
+		
+		script(type="text/javascript", src="http://code.jquery.com/jquery-latest.js")
+		script(type="text/javascript", src="js/src/app.js", charset="utf-8")
+	body.
+		Hello <br>
+		Im a multiline text block in a jade template. <br>
+		The dot at the end of the body tag says so!<br>
+		Be carefule though, Jade files are space & tab deliniated <br>
+		so extra space after the period on body will mess up a multiline<br>
+		text block. Arbitrary HTML can be added in the blocks as you can see above.

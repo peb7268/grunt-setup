@@ -21,8 +21,19 @@ module.exports = function(grunt) {
         force: true
       }
     },
-
     //Preprocessor Configs
+    jade: {
+      compile: {
+        options: {
+          data: {
+            debug: false
+          }
+        },
+        files: {
+          "./index.html": ["src/*.jade"]
+        }
+      }
+    },
     sass: {
       compile: {
         files: {
@@ -31,16 +42,20 @@ module.exports = function(grunt) {
       }
     },
     coffee: {
-      compile: {
-        files: {
-          './js/app.js': './js/coffee/app.coffee'
-        }
+      glob_to_multiple: {
+        expand: true,
+        flatten: true,
+        cwd: './',
+        src: ['js/coffee/*.coffee'],
+        dest: 'js/src',
+        ext: '.js'
       }
     },
   });
 
   // These plugins provide necessary tasks.
   grunt.loadNpmTasks('grunt-contrib-watch');
+  grunt.loadNpmTasks('grunt-contrib-jade');
   grunt.loadNpmTasks('grunt-contrib-coffee');
   grunt.loadNpmTasks('grunt-contrib-sass');
   grunt.loadNpmTasks('grunt-contrib-jshint');
@@ -54,8 +69,7 @@ module.exports = function(grunt) {
     'nodeunit',
     'clean'
   ]);
-
   // By default, lint and run all tests.
   // grunt.registerTask('default', ['jshint', 'test', 'build-contrib']);
-  grunt.registerTask('default', ['sass', 'coffee', 'jshint', 'watch']);
+  grunt.registerTask('default', ['jade', 'sass', 'coffee', 'jshint', 'watch']);
 };
